@@ -22,18 +22,17 @@ class IP
     /**
      * @param $ip
      *
-     * @return bool
+     * @return bool|null (Null if invalid IP, else Bool)
      */
 
     public function exists($ip)
     {
         if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
-            $Query = $this->DB->prepare('SELECT start FROM IP WHERE start <= INET_ATON(?) AND end >= INET_ATON(?)');
-            $Query->execute([$ip, $ip]);
-
+            $Query = $this->DB->prepare('SELECT start FROM IP WHERE start <= ? AND end >= ?');
+            $Query->execute([ip2long($ip), ip2long($ip)]);
             return $Query->fetch() ? true : false;
         }
 
-        return false;
+        return null;
     }
 }
