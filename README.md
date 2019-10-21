@@ -18,8 +18,9 @@ Usage example:
 
     $BlackBox = new IP($DB);
 
-    if($BlackBox->exists($ip)){
-        echo 'You are using proxy';
+    switch($BlackBox->exists($ip)){
+        case true: echo 'You are using proxy'; break;
+        case false: echo 'You are not using proxy'; break;
+        case null: echo 'Your IP is not IP4';
     }
-
 
