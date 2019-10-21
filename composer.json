@@ -1,0 +1,14 @@
+{
+    "name": "ursulnegrul/proxy-blackbox",
+    "description": "Black Box Proxy Block - An attempt to continue the discontinued public interface http://proxy.mind-media.com/block/",
+    "type": "project",
+    "authors": [
+        {
+            "name": "-Ythan",
+            "email": "proxyblock@mind-media.com"
+        }
+    ],
+    "require": {
+      "ext-pdo": "*"
+    }
+}
