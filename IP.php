@@ -5,7 +5,13 @@ namespace Blackbox;
 class IP
 {
 
-    public $DB;
+    private $DB;
+
+    /**
+     * IP constructor pointing to Blocklist Database
+     *
+     * @param \PDO $DB
+     */
 
     public function __construct(\PDO $DB)
     {
@@ -18,6 +24,7 @@ class IP
      *
      * @return bool
      */
+
     public function exists($ip)
     {
         if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
