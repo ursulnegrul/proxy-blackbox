@@ -2,7 +2,7 @@
 
 namespace Blackbox;
 
-class Blocklist
+class IP
 {
 
     public $DB;
