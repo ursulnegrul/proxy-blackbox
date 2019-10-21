@@ -2,7 +2,7 @@
 
 namespace Blackbox;
 
-class Search
+class Blocklist
 {
 
     public $DB;
@@ -13,12 +13,18 @@ class Search
     }
 
 
-    public function ip($ip)
+    /**
+     * @param $ip
+     *
+     * @return bool
+     */
+    public function exists($ip)
     {
         if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             $Query = $this->DB->prepare('SELECT start FROM IP WHERE start <= INET_ATON(?) AND end >= INET_ATON(?)');
             $Query->execute([$ip, $ip]);
-            return $Query->fetch();
+
+            return $Query->fetch() ? true : false;
         }
 
         return false;
