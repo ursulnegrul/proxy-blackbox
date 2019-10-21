@@ -11,6 +11,10 @@ Usage example:
     $ip = $_SERVER['REMOTE_ADDR'];
 
     $DB = new \PDO('mysql:host=localhost;dbname=blocklist;', 'user', 'password');
+    
+    # OR
+    
+    $DB = new \PDO('sqlite:blocklist.sq3');
 
     $BlackBox = new IP($DB);
 
