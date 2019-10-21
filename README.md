@@ -10,7 +10,7 @@ Usage example:
 
     $ip = $_SERVER['REMOTE_ADDR'];
 
-    $DB = new \PDO('mysql:host=localhost;dbname=blocklist;charset=utf8mb4;', 'user', 'password');
+    $DB = new \PDO('mysql:host=localhost;dbname=blocklist;', 'user', 'password');
 
     $BlackBox = new IP($DB);
 
